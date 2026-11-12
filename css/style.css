@@ -1,0 +1,164 @@
+/* Trattoria del Borgo - Custom Styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --cream: #FBF7F2;
+  --anthracite: #2C2C2C;
+  --terracotta: #C4704B;
+  --olive: #6B7F5C;
+  --gold: #C9A86C;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Hero section */
+.hero-bg {
+  background: linear-gradient(135deg, rgba(44, 44, 44, 0.7) 0%, rgba(196, 112, 75, 0.4) 100%),
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%232C2C2C" width="100" height="100"/></svg>');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(44, 44, 44, 0.15);
+}
+
+/* Menu item styles */
+.menu-item {
+  border-bottom: 1px solid rgba(44, 44, 44, 0.08);
+  transition: background 0.2s ease;
+}
+.menu-item:hover {
+  background: rgba(196, 112, 75, 0.04);
+}
+
+.menu-item.sold-out {
+  opacity: 0.5;
+}
+
+/* Badge styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+}
+.badge-gf { background: #E8F5E9; color: #2E7D32; }
+.badge-veg { background: #E8F5E9; color: #558B2F; }
+.badge-vegan { background: #F1F8E9; color: #33691E; }
+.badge-spicy { background: #FFEBEE; color: #C62828; }
+
+/* Admin table styles */
+.admin-table th {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6B7280;
+  font-weight: 600;
+}
+
+/* Status pills */
+.status-libero { background: #E8F5E9; color: #2E7D32; }
+.status-prenotato { background: #FFF3E0; color: #E65100; }
+.status-occupato { background: #FFEBEE; color: #C62828; }
+
+/* Table map */
+.table-seat {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+.table-seat:hover {
+  transform: scale(1.05);
+}
+.table-seat.libero {
+  background: #E8F5E9;
+  color: #2E7D32;
+  border-color: #A5D6A7;
+}
+.table-seat.prenotato {
+  background: #FFF3E0;
+  color: #E65100;
+  border-color: #FFCC80;
+}
+.table-seat.occupato {
+  background: #FFEBEE;
+  color: #C62828;
+  border-color: #EF9A9A;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F0EB;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A86C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C4704B;
+}
+
+/* Form inputs */
+input, select, textarea {
+  font-family: inherit;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: #C4704B;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Mobile menu */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
