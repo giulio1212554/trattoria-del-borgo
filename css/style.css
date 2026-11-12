@@ -1,164 +1,194 @@
-/* Trattoria del Borgo - Custom Styles */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
+/* Trattoria del Borgo - Stili custom */
 :root {
   --cream: #FBF7F2;
+  --cream-dark: #F3EDE4;
   --anthracite: #2C2C2C;
+  --anthracite-light: #4A4A4A;
   --terracotta: #C4704B;
+  --terracotta-dark: #A85A3A;
   --olive: #6B7F5C;
+  --olive-light: #8A9E7A;
   --gold: #C9A86C;
+  --gold-light: #E0C994;
+  --white: #FFFFFF;
+  --success: #4A7C59;
+  --warning: #D4A017;
+  --danger: #B84A4A;
+  --border: #E8E0D5;
 }
 
-* {
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  background-color: var(--cream);
+  color: var(--anthracite);
 }
 
-.font-serif {
+h1, h2, h3, h4, .font-serif {
   font-family: 'Playfair Display', Georgia, serif;
 }
 
-/* Hero section */
-.hero-bg {
-  background: linear-gradient(135deg, rgba(44, 44, 44, 0.7) 0%, rgba(196, 112, 75, 0.4) 100%),
-              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%232C2C2C" width="100" height="100"/></svg>');
-  background-size: cover;
-  background-position: center;
+/* Utility classes */
+.bg-cream { background-color: var(--cream); }
+.bg-cream-dark { background-color: var(--cream-dark); }
+.bg-anthracite { background-color: var(--anthracite); }
+.bg-terracotta { background-color: var(--terracotta); }
+.bg-olive { background-color: var(--olive); }
+.bg-gold { background-color: var(--gold); }
+
+.text-anthracite { color: var(--anthracite); }
+.text-terracotta { color: var(--terracotta); }
+.text-olive { color: var(--olive); }
+.text-gold { color: var(--gold); }
+.text-cream { color: var(--cream); }
+
+.border-cream { border-color: var(--border); }
+.border-terracotta { border-color: var(--terracotta); }
+
+.btn-primary {
+  background-color: var(--terracotta);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: var(--terracotta-dark);
+  transform: translateY(-1px);
 }
 
-/* Card hover effects */
-.card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.btn-secondary {
+  background-color: transparent;
+  color: var(--anthracite);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: 1.5px solid var(--anthracite);
+  transition: all 0.2s;
+  cursor: pointer;
 }
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(44, 44, 44, 0.15);
-}
-
-/* Menu item styles */
-.menu-item {
-  border-bottom: 1px solid rgba(44, 44, 44, 0.08);
-  transition: background 0.2s ease;
-}
-.menu-item:hover {
-  background: rgba(196, 112, 75, 0.04);
+.btn-secondary:hover {
+  background-color: var(--anthracite);
+  color: white;
 }
 
-.menu-item.sold-out {
-  opacity: 0.5;
+.btn-olive {
+  background-color: var(--olive);
+  color: white;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-olive:hover { background-color: var(--olive-light); }
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(44, 44, 44, 0.06);
+  border: 1px solid var(--border);
 }
 
-/* Badge styles */
+/* Status badges */
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.15rem 0.5rem;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
   border-radius: 9999px;
-}
-.badge-gf { background: #E8F5E9; color: #2E7D32; }
-.badge-veg { background: #E8F5E9; color: #558B2F; }
-.badge-vegan { background: #F1F8E9; color: #33691E; }
-.badge-spicy { background: #FFEBEE; color: #C62828; }
-
-/* Admin table styles */
-.admin-table th {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #6B7280;
-  font-weight: 600;
-}
-
-/* Status pills */
-.status-libero { background: #E8F5E9; color: #2E7D32; }
-.status-prenotato { background: #FFF3E0; color: #E65100; }
-.status-occupato { background: #FFEBEE; color: #C62828; }
-
-/* Table map */
-.table-seat {
-  width: 64px;
-  height: 64px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: 0.75rem;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.badge-libero { background: #E8F5E9; color: var(--success); }
+.badge-prenotato { background: #FFF3E0; color: #E65100; }
+.badge-occupato { background: #FFEBEE; color: var(--danger); }
+.badge-in-attesa { background: #FFF8E1; color: #F57F17; }
+.badge-confermata { background: #E3F2FD; color: #1565C0; }
+.badge-arrivato { background: #E8F5E9; color: var(--success); }
+.badge-cancellata { background: #F5F5F5; color: #757575; }
+
+/* Table map */
+.table-card {
+  transition: all 0.2s;
   cursor: pointer;
-  transition: all 0.2s ease;
   border: 2px solid transparent;
 }
-.table-seat:hover {
-  transform: scale(1.05);
-}
-.table-seat.libero {
-  background: #E8F5E9;
-  color: #2E7D32;
-  border-color: #A5D6A7;
-}
-.table-seat.prenotato {
-  background: #FFF3E0;
-  color: #E65100;
-  border-color: #FFCC80;
-}
-.table-seat.occupato {
-  background: #FFEBEE;
-  color: #C62828;
-  border-color: #EF9A9A;
+.table-card:hover { transform: scale(1.03); }
+.table-card.libero { border-color: var(--success); background: #F1F8F2; }
+.table-card.prenotato { border-color: #E65100; background: #FFF8F0; }
+.table-card.occupato { border-color: var(--danger); background: #FFF5F5; }
+
+/* Hero */
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(44,44,44,0.75) 0%, rgba(196,112,75,0.55) 100%);
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
+/* Admin sidebar */
+.admin-sidebar {
+  background: var(--anthracite);
+  min-height: 100vh;
 }
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+.admin-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  color: #B0B0B0;
+  border-radius: 0.5rem;
+  transition: all 0.15s;
+  text-decoration: none;
 }
-::-webkit-scrollbar-track {
-  background: #F5F0EB;
+.admin-nav-item:hover, .admin-nav-item.active {
+  background: rgba(255,255,255,0.08);
+  color: white;
 }
-::-webkit-scrollbar-thumb {
-  background: #C9A86C;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #C4704B;
+.admin-nav-item.active {
+  border-left: 3px solid var(--terracotta);
 }
 
 /* Form inputs */
 input, select, textarea {
-  font-family: inherit;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.65rem 1rem;
+  background: white;
+  color: var(--anthracite);
+  width: 100%;
+  transition: border-color 0.15s;
 }
 input:focus, select:focus, textarea:focus {
   outline: none;
-  ring: 2px;
-  ring-color: #C4704B;
+  border-color: var(--terracotta);
+  box-shadow: 0 0 0 3px rgba(196, 112, 75, 0.15);
 }
 
-/* Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Tags */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  background: var(--cream-dark);
+  color: var(--anthracite-light);
 }
-.fade-in {
-  animation: fadeIn 0.4s ease forwards;
-}
+.tag-vegano { background: #E8F5E9; color: #2E7D32; }
+.tag-vegetariano { background: #F1F8E9; color: #558B2F; }
+.tag-senza-glutine { background: #FFF8E1; color: #F9A825; }
+.tag-piccante { background: #FFEBEE; color: #C62828; }
 
-/* Mobile menu */
+/* Smooth transitions */
+* { transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+
+/* Mobile nav */
+.mobile-menu { display: none; }
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
+  .mobile-menu.open { display: block; }
 }
